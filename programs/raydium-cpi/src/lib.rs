@@ -30,4 +30,11 @@ pub mod raydium_cpi {
     ) -> Result<()> {
         buy_handler(ctx, amount_in, minimum_amount_out, share_fee_rate)
     }
+
+    pub fn atomic<'info>(
+        ctx: Context<'_, '_, '_, 'info, Atomic<'info>>,
+        args: LaunchTokenArgs,
+    ) -> Result<()> {
+        atmic_handler(ctx, args)
+    }
 }
