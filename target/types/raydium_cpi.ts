@@ -1084,10 +1084,6 @@ export type RaydiumCpi = {
         "kind": "struct",
         "fields": [
           {
-            "name": "productId",
-            "type": "u32"
-          },
-          {
             "name": "name",
             "type": "string"
           },

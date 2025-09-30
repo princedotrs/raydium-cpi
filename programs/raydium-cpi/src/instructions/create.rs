@@ -14,7 +14,6 @@ use anchor_spl::{
 
 #[derive(AnchorSerialize, AnchorDeserialize, Clone)]
 pub struct LaunchTokenArgs {
-    pub product_id: u32,
     pub name: String,
     pub symbol: String,
     pub uri: String,

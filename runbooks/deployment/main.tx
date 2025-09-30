@@ -17,3 +17,17 @@ action "deploy_raydium_cpi" "svm::deploy_program" {
     // This will make deployments instantaneous, but is deviating from how the deployments will take place on devnet/mainnet.
     // instant_surfnet_deployment = true
 }
+
+variable "usd1" {
+    value = "USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB"
+    editable = true
+}
+
+action "fund_usdc" "svm::setup_surfnet" {
+    set_token_account {
+        public_key = signer.authority.public_key
+        token = variable.usd1
+        token_program = "token2020"
+        amount = 1000000000
+    }
+}

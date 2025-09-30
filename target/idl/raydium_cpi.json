@@ -1078,10 +1078,6 @@
         "kind": "struct",
         "fields": [
           {
-            "name": "product_id",
-            "type": "u32"
-          },
-          {
             "name": "name",
             "type": "string"
           },
