@@ -14,6 +14,449 @@ export type RaydiumCpi = {
   },
   "instructions": [
     {
+      "name": "buy",
+      "discriminator": [
+        102,
+        6,
+        61,
+        18,
+        1,
+        218,
+        235,
+        234
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "signer": true
+        },
+        {
+          "name": "authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  95,
+                  115,
+                  101,
+                  101,
+                  100
+                ]
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "raydiumLaunchpadProgram"
+            }
+          }
+        },
+        {
+          "name": "globalConfig",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "quoteTokenMint"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  0
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "raydiumLaunchpadProgram"
+            }
+          }
+        },
+        {
+          "name": "platformConfig"
+        },
+        {
+          "name": "poolState",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "baseTokenMint"
+              },
+              {
+                "kind": "account",
+                "path": "quoteTokenMint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "raydiumLaunchpadProgram"
+            }
+          }
+        },
+        {
+          "name": "userBaseToken",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "user"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "baseTokenMint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "userQuoteToken",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "user"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "quoteTokenMint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "baseVault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "poolState"
+              },
+              {
+                "kind": "account",
+                "path": "baseTokenMint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "raydiumLaunchpadProgram"
+            }
+          }
+        },
+        {
+          "name": "quoteVault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "poolState"
+              },
+              {
+                "kind": "account",
+                "path": "quoteTokenMint"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "raydiumLaunchpadProgram"
+            }
+          }
+        },
+        {
+          "name": "baseTokenMint"
+        },
+        {
+          "name": "quoteTokenMint"
+        },
+        {
+          "name": "eventAuthority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  95,
+                  95,
+                  101,
+                  118,
+                  101,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "raydiumLaunchpadProgram"
+            }
+          }
+        },
+        {
+          "name": "raydiumLaunchpadProgram",
+          "address": "LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj"
+        },
+        {
+          "name": "tokenProgram",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amountIn",
+          "type": "u64"
+        },
+        {
+          "name": "minimumAmountOut",
+          "type": "u64"
+        },
+        {
+          "name": "shareFeeRate",
+          "type": "u64"
+        }
+      ]
+    },
+    {
       "name": "create",
       "discriminator": [
         24,

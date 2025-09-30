@@ -8,7 +8,6 @@ use anchor_lang::prelude::*;
 pub use constants::*;
 pub use instructions::*;
 
-
 declare_id!("EXZHGtUuunmGujBhM6WxhCbZEqyN9bsAnsvXTyg1rqF");
 declare_program!(raydium_launchpad);
 
@@ -23,5 +22,12 @@ pub mod raydium_cpi {
         create_handler(ctx, args)
     }
 
-
+    pub fn buy<'info>(
+        ctx: Context<'_, '_, '_, 'info, Buy<'info>>,
+        amount_in: u64,
+        minimum_amount_out: u64,
+        share_fee_rate: u64,
+    ) -> Result<()> {
+        buy_handler(ctx, amount_in, minimum_amount_out, share_fee_rate)
+    }
 }

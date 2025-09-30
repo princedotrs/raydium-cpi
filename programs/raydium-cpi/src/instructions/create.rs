@@ -117,7 +117,10 @@ pub struct Create<'info> {
     pub system_program: Program<'info, System>,
 }
 
-pub fn create_handler<'info>(ctx: Context<'_, '_, '_, 'info, Create<'info>>, args: LaunchTokenArgs) -> Result<()> {
+pub fn create_handler<'info>(
+    ctx: Context<'_, '_, '_, 'info, Create<'info>>,
+    args: LaunchTokenArgs,
+) -> Result<()> {
     let cpi_ctx = CpiContext::new(
         ctx.accounts.raydium_launchpad_program.to_account_info(),
         InitializeV2 {
@@ -149,9 +152,6 @@ pub fn create_handler<'info>(ctx: Context<'_, '_, '_, 'info, Create<'info>>, arg
         decimals: 6,
     };
 
-    // Align Raydium curve with the store so that t_out(F) equals the allocated base (D)
-    // - total_base_sell (D) = total tokens allocated by the store across drops (1e6 units)
-    // - total_quote_fund_raising (F) = total quote allocated/raised (lamports for SOL)
     let curve_params = CurveParams::Constant {
         data: ConstantCurve {
             supply: 1000000000000000,
