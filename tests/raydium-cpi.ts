@@ -162,8 +162,8 @@ describe("raydium-cpi", () => {
     const baseTokenKeypair = new Keypair();
     const baseTokenMint = baseTokenKeypair.publicKey;
     const productId = 100;
-    const name = "LetsLaunch";
-    const symbol = "LL";
+    const name = "Raydium Atoic CPI Token";
+    const symbol = "RAYCPIA";
     const uri =
       "https://gateway.pinata.cloud/ipfs/bafkreigvfdqkujdxm6eyii4zxyxzfephwbxdfdighf5534w6cmot3a5uji";
 
